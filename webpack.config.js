@@ -5,11 +5,12 @@ module.exports = {
     entry: [
         'babel-polyfill',
         './src/index.js',
-        './src/style.css'
+        './src/scss/style.scss'
     ],
 
     output: {
         path: __dirname + '/public/',
+        publicPath: './src/scss',
         filename: 'bundle.js'
     },
 
@@ -24,8 +25,12 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                loader: 'style!css-loader'
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+            },
+            { 
+                test: /\.(png|jpg)$/, 
+                loader: 'file-loader' 
             }
         ]
     },

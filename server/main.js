@@ -8,9 +8,7 @@ import morgan from 'morgan'; // HTTP REQUEST LOGGER
 import bodyParser from 'body-parser'; // PARSE HTML BODY
 
 import mongoose from 'mongoose';
-import session from 'express-session';
 
-import api from './routes';
 
 
 const app = express();
@@ -25,19 +23,12 @@ const db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', () => { console.log('Connected to mongodb server'); });
 // mongoose.connect('mongodb://username:password@host:port/database=');
-mongoose.connect('mongodb://localhost/codelab');
+mongoose.connect('mongodb://localhost/dnote');
 
-/* use session */
-app.use(session({
-    secret: 'CodeLab1$1$234',
-    resave: false,
-    saveUninitialized: true
-}));
 
 app.use('/', express.static(path.join(__dirname, './../public')));
 
-/* setup routers & static directory */
-app.use('/api', api);
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, './../public/index.html'));

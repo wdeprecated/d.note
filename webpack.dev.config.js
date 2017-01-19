@@ -8,7 +8,7 @@ module.exports = {
         './src/index.js',
         'webpack-dev-server/client?http://0.0.0.0:4000',
         'webpack/hot/only-dev-server',
-        './src/style.css'
+        './src/scss/style.scss'
     ],
 
     output: {
@@ -53,8 +53,12 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                loader: 'style!css-loader'
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+            },
+            { 
+                test: /\.(png|jpg)$/, 
+                loader: 'file-loader' 
             }
         ]
     },

@@ -1,0 +1,16 @@
+.container {
+  background-image: url("../../public/scss/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(70px);
+}
