@@ -1,12 +1,14 @@
 import React from 'react';
 import style from './Main.scss'
 
-import { Navigator } from 'components'
+import { Navigator, Note, Messenger } from 'components'
 
 const Main = () => {
     return (
-        <main>
+        <main className="main">
             <Navigator/>
+            <Note/>
+            <Messenger/>
         </main>
     );
 };

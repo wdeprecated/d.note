@@ -3,9 +3,8 @@ import style from './Note.scss'
 
 const Note = () => {
     return (
-        <div>
-            
-        </div>
+        <section className="note">
+        </section>
     );
 };
 
